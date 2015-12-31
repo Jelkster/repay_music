@@ -1,24 +1,35 @@
-## README
+# Repay Music 
+![Repay Music](https://pbs.twimg.com/profile_images/581117997986770944/82TUitVE.png)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Up and Running
 
-Things you may want to cover:
+#### Requirements
+- Ruby 2.2.2+ (Rails 5)
+- PostgreSQL
 
-* Ruby version
+Install gems:
+```
+$ bundle update
+```
 
-* System dependencies
+Create config file to hold environment variables:
+```
+$ bundle exec figaro install
+```
 
-* Configuration
+Add variables to config file:
+```ruby
+# config/application.yml
 
-* Database creation
+db_username: username
+```
 
-* Database initialization
+Create database:
+```
+$ rails db:create db:schema:load
+```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Run server:
+```
+$ rails s
+```
