@@ -1,6 +1,8 @@
 # Repay Music 
 
 [![Join the chat at https://gitter.im/Jelkster/repay_music](https://badges.gitter.im/Jelkster/repay_music.svg)](https://gitter.im/Jelkster/repay_music?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Slack Status](https://repaymusic.herokuapp.com/badge.svg)](https://repaymusic.herokuapp.com)
+
 
 ![Repay Music](https://pbs.twimg.com/profile_images/581117997986770944/82TUitVE.png)
 
