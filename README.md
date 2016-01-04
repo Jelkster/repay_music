@@ -7,7 +7,7 @@
 ## Getting Up and Running
 
 #### Requirements
-- Ruby 2.2.2+ (Rails 5)
+- Ruby 2.3.0+
 - PostgreSQL
 
 Install gems:
