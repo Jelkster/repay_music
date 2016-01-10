@@ -1,6 +1,6 @@
 # Repay Music 
 
-![Travis CI](https://api.travis-ci.org/Jelkster/repay_music.svg)
+[![Travis CI](https://api.travis-ci.org/Jelkster/repay_music.svg)](https://travis-ci.org/Jelkster/repay_music)
 [![Join the chat at https://gitter.im/Jelkster/repay_music](https://badges.gitter.im/Jelkster/repay_music.svg)](https://gitter.im/Jelkster/repay_music?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Slack Status](https://repaymusic.herokuapp.com/badge.svg)](https://repaymusic.herokuapp.com)
 
