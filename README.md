@@ -28,6 +28,7 @@ Add variables to config file:
 # config/application.yml
 
 db_username: username
+test_db: repay_music_test
 ```
 
 Create database:

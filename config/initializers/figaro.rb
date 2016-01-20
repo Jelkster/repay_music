@@ -1,3 +1,4 @@
 Figaro.require_keys(
-  'db_username'
+  'db_username',
+  'test_db'
 )
