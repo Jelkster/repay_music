@@ -20,6 +20,11 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 # Use Puma as the app server
 gem 'puma'
+# Use SCSS for stylesheets
+gem 'sass-rails'
+# Sleek, intuitive, and powerful front-end framework for faster and easier web development.
+gem 'bootstrap', '~> 4.0.0.alpha3'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
