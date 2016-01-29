@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', github: 'rails/rails' # '>= 5.0.0.beta1', '< 5.1'
+gem 'rails', github: 'rails/rails' # '>= 5.0.0.beta1.1', '< 5.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Uglifier as compressor for JavaScript assets
@@ -23,7 +23,7 @@ gem 'puma'
 # Use SCSS for stylesheets
 gem 'sass-rails'
 # Sleek, intuitive, and powerful front-end framework for faster and easier web development.
-gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'bootstrap', github: 'twbs/bootstrap-rubygem' # '~> 4.0.0.alpha3'
 
 
 # Use ActiveModel has_secure_password
@@ -37,6 +37,17 @@ group :development, :test do
   gem 'byebug'
   # Manage environment variables
   gem 'figaro'
+  # Behaviour Driven Development for Ruby.
+  gem 'rspec-core', github: 'rspec/rspec-core'
+  gem 'rspec-expectations', github: 'rspec/rspec-expectations'
+  gem 'rspec-mocks', github: 'rspec/rspec-mocks'
+  gem 'rspec-rails', github: 'rspec/rspec-rails'
+  gem 'rspec-support', github: 'rspec/rspec-support'
+  gem 'rails-controller-testing', github: 'rails/rails-controller-testing' # https://github.com/rspec/rspec-rails/issues/1393
+  # One-liners that test common Rails functionality.
+  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
+  # Fixtures replacement
+  gem 'factory_girl_rails', github: 'thoughtbot/factory_girl_rails'
 end
 
 group :development do

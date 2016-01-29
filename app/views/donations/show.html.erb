@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Request:</strong>
+  <%= @donation.request %>
+</p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @donation.artist_id %>
+</p>
+
+<p>
+  <strong>Artist name:</strong>
+  <%= @donation.artist_name %>
+</p>
+
+<p>
+  <strong>Artist website:</strong>
+  <%= @donation.artist_website %>
+</p>
+
+<p>
+  <strong>Artist facebook:</strong>
+  <%= @donation.artist_facebook %>
+</p>
+
+<p>
+  <strong>Artist twitter:</strong>
+  <%= @donation.artist_twitter %>
+</p>
+
+<p>
+  <strong>Artist bandcamp:</strong>
+  <%= @donation.artist_bandcamp %>
+</p>
+
+<p>
+  <strong>Artist instagram:</strong>
+  <%= @donation.artist_instagram %>
+</p>
+
+<p>
+  <strong>Artist snapchat:</strong>
+  <%= @donation.artist_snapchat %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @donation.amount %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @donation.comment %>
+</p>
+
+<p>
+  <strong>Youtube video:</strong>
+  <%= @donation.youtube_video_id %>
+</p>
+
+<p>
+  <strong>Youtube error code:</strong>
+  <%= @donation.youtube_error_code %>
+</p>
+
+<%= link_to 'Edit', edit_donation_path(@donation) %> |
+<%= link_to 'Back', donations_path %>
