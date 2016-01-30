@@ -57,5 +57,12 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+  gem 'page-object'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
