@@ -1,1 +1,1 @@
-base_url: base_url
+base_url: <%= ENV['base_url'] %>

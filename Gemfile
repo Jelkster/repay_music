@@ -44,6 +44,9 @@ group :development, :test do
   gem 'rspec-rails', github: 'rspec/rspec-rails'
   gem 'rspec-support', github: 'rspec/rspec-support'
   gem 'rails-controller-testing', github: 'rails/rails-controller-testing' # https://github.com/rspec/rspec-rails/issues/1393
+  gem 'cucumber-rails', require: false, github: 'cucumber/cucumber-rails'
+  gem 'database_cleaner', github: 'DatabaseCleaner/database_cleaner'
+  gem 'page-object', github: 'cheezy/page-object'
   # One-liners that test common Rails functionality.
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
   # Fixtures replacement
@@ -55,13 +58,6 @@ group :development do
   gem 'web-console', '~> 3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-end
-
-group :test do
-  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
-  gem 'cucumber-rails', require: false
-  gem 'database_cleaner'
-  gem 'page-object'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
