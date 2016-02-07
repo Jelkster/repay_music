@@ -29,6 +29,7 @@ Add variables to config file:
 
 db_username: username
 test_db: repay_music_test
+base_url: http://localhost:3000
 ```
 
 Create database:

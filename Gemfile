@@ -44,6 +44,9 @@ group :development, :test do
   gem 'rspec-rails', github: 'rspec/rspec-rails'
   gem 'rspec-support', github: 'rspec/rspec-support'
   gem 'rails-controller-testing', github: 'rails/rails-controller-testing' # https://github.com/rspec/rspec-rails/issues/1393
+  gem 'cucumber-rails', require: false, github: 'cucumber/cucumber-rails'
+  gem 'database_cleaner', github: 'DatabaseCleaner/database_cleaner'
+  gem 'page-object', github: 'cheezy/page-object'
   # One-liners that test common Rails functionality.
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
   # Fixtures replacement
