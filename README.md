@@ -24,12 +24,12 @@ $ bundle exec figaro install
 ```
 
 Add variables to config file:
-```ruby
+```yaml
 # config/application.yml
 
-db_username: username
+db_username: <username>
 test_db: repay_music_test
-base_url: http://localhost:3000
+base_url: <http://localhost:3000>
 ```
 
 Create database:
