@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', github: 'rails/rails' # '>= 5.0.0.beta1.1', '< 5.1'
+gem 'rails', github: 'rails/rails' # '>= 5.0.0.beta2', '< 5.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Uglifier as compressor for JavaScript assets
@@ -14,8 +14,9 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks', github: 'rails/turbolinks'
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/turbolinks/turbolinks
+# gem 'turbolinks', github: 'turbolinks/turbolinks' # '~> 5.0.0.beta' 
+gem 'wiselinks' # github: 'igor-alexandrov/wiselinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # Use Puma as the app server
