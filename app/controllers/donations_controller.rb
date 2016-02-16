@@ -1,4 +1,5 @@
 class DonationsController < ApplicationController
+  layout :has_layout?
   before_action :set_donation, only: [:show, :edit, :update, :destroy]
 
   # GET /donations

@@ -12,10 +12,7 @@
 #
 #= require jquery
 #= require jquery_ujs
-#= require wiselinks
+#= require jquery.pjax
 #= require tether
 #= require bootstrap
 #= require_tree .
-
-$ ->
-  window.wiselinks = new Wiselinks $('#yield')
