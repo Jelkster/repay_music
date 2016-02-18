@@ -5,6 +5,6 @@ class ApplicationController < ActionController::Base
   layout :has_layout?
 
   def has_layout?
-    request.headers['X-PJAX'] ? false : 'application'
+    request.xhr? ? false : 'application'
   end
 end
