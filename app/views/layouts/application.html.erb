@@ -9,11 +9,26 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <h1>Repay Music</h1>
+      <p>
+        A place where fans can make money by recommending music, <br>
+        and artists can get paid for making it.
+      </p>
+
+      <div id="youtube">
+        <iframe width="420" height="315" src="https://www.youtube.com/embed/daKHovByLJ4" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <p></p>
+  
+      <div id="yield">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
