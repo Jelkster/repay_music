@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/Jelkster/repay_music#readme",
   "dependencies": {
-    "tether": "^1.1.1"
+    "tether": "^1.1.1",
+    "jquerymy": "^1.2.2"
   }
 }
