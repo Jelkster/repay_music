@@ -39,6 +39,8 @@ gem 'local_time'
 gem 'font-awesome-rails'
 # A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for modern web app frameworks and ORMs
 gem 'kaminari', github: 'amatsuda/kaminari'
+# Manage environment variables
+gem 'figaro'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
@@ -51,8 +53,6 @@ gem 'kaminari', github: 'amatsuda/kaminari'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
-  # Manage environment variables
-  gem 'figaro'
   # Behaviour Driven Development for Ruby.
   gem 'rspec-core', github: 'rspec/rspec-core'
   gem 'rspec-expectations', github: 'rspec/rspec-expectations'
