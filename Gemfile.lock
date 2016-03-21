@@ -250,6 +250,7 @@ GEM
     minitest (5.8.4)
     multi_json (1.11.2)
     multi_test (0.1.2)
+    newrelic_rpm (3.15.0.314)
     nio4r (1.2.1)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
@@ -261,6 +262,7 @@ GEM
       json
     rack-test (0.6.3)
       rack (>= 1.0)
+    rack-timeout (0.3.2)
     rails-deprecated_sanitizer (1.0.3)
       activesupport (>= 4.2.0.alpha)
     rails-dom-testing (1.0.7)
@@ -345,9 +347,11 @@ DEPENDENCIES
   kaminari!
   listen (~> 3.0.5)
   local_time
+  newrelic_rpm
   page-object!
   pg (~> 0.18)
   puma
+  rack-timeout
   rails!
   rails-controller-testing!
   rails_12factor
