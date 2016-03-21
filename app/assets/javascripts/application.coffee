@@ -18,5 +18,6 @@
 #= require sugar
 #= require underscore
 # require jquerymy
+#= require local_time
 #= require_tree ./templates
 #= require_tree .

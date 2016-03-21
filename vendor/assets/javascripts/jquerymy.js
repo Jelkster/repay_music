@@ -1,23 +1,21 @@
 /*
- * jQuery.my 1.2.2
+ * jQuery.my 1.2.3
  * Requires jQuery 1.11.0+, SugarJS 1.3.9-1.4.x
  * 
- * — detects promises, not only deferreds, returned from init functions
- * — fixed #20
- * — fixed issue with closing global modal break sortable drag positioning
- * — modal .done receives modal form runtime manifest as this
- * — modal has .hardClose param defining is X close hard or interruptible
- * — modal plugin remebers parent continer on plugin re-init
+ * — fixed #21
+ * — .style understands @media keys
+ * — $.modal instances sharing one root pop up atop other 
+ *   modals on mousedown
  *
  * More details at jquerymy.com
  * 
  * (c) @ermouth, thanks @carpogoryanin, @ftescht
- * 2016-02-10
+ * 2016-03-05
  */
 
 ;(function ($) {
   
-  var _version = "jQuery.my 1.2.2";
+  var _version = "jQuery.my 1.2.3";
 
   // Some shortcuts and constants
   var TMP, lang = "en",
@@ -681,9 +679,9 @@
   };
 
   var f = ({
-    
+  
     // Helper functions
-    
+  
     "con": _CON,
     "clone": function (o) {return o.clone?o.clone():o;},
     "indom":_indom,
@@ -784,28 +782,36 @@
         +unescape(encodeURIComponent(s))
       );
     },
+    "_s2css":_style,
     "css2json": function(css){
-      var res =
-          ((css+"")
-           .replace(/\/\*[\s\S]+\*\//gm,"")
-           .replace(/@charset[^;]+;/gim,'')
-           .replace(/[\n\t\s]+/g,' ')
-           .replace(/\}/g,'}ᴥ')
-           .replace(/^\n+/g,"").replace(/[\n\s]+$/g,"")
-           .split('ᴥ')
-           .compact(true)
-           .reduce(function(a,b){
-             var t = b.trim(), p, k, v;
-             if (/^[^{]+\{[^\}]+\}$/.test(t)) {
-               p = t.to(-1).split("{");
-               k = " "+p[0].trim();
-               v = p[1].trim();
-               if (v.last()!=";") v+=";";
-               if (!a[k]) a[k]="";
-               a[k]+=v;
-             }
-             return a;
-           },{}));
+      var acc = "", res = (
+        (css+"")
+        .replace(/\/\*[\s\S]+\*\//gm,'')
+        .replace(/@charset[^;]+;/gim,'')
+        .replace(/[\n\t\s]+/g,' ')
+        .replace(/\s*@media[^{]*\{/g,function(e){return e.to(-1).trim()+"ᴥ"})
+        .replace(/\}/g,'}ᴥ')
+        .replace(/^\n+/g,"").replace(/[\n\s]+$/g,"")
+        .split('ᴥ')
+        .compact(true)
+        .reduce(function(a,b){
+          var t = b.trim(), p, k, v;
+          if ("}" == t) acc = "";
+          else if (/^[^{]+\{[^\}]+\}$/.test(t)) {
+            p = t.to(-1).split("{");
+            k = " "+p[0].trim();
+            v = p[1].trim();
+            if (v.last()!=";") v+=";";
+            if (!acc) a[k] = (a[k]||"")+v;
+            else a[acc][k] = (a[acc][k]||"")+v;
+          } 
+          else if (/^@media/.test(t)) {
+            a[t] = {};
+            acc = t;
+          }
+          return a;
+        },{})
+      );
       return res;
     }
   });
@@ -2683,10 +2689,7 @@
           style = _style($root, manifest, manClass, formClass);
           if (style && style[0].length && !onlyLocals) {
             $style = $('style#' + manClass);
-            if (!$style.size()) {
-              $style = $(html(style[0], manClass)).appendTo($("body"));
-            }
-    
+            if (!$style.size()) $style = $(html(style[0], manClass)).appendTo($("body"));
             $style.data("count", $style.data("count") * 1 + 1);
             $root.data("my").style = $style;
           }
@@ -2711,9 +2714,13 @@
         }
     
         function html(styles, prefixCss) {
-          return ('<'+'style id="' + prefixCss + '" data-count="0">' +
-                  "." + prefixCss + styles.join(' \n.' + prefixCss) + '\n' +
-                  '</'+'style>');
+          var rn = '\n', 
+              s = rn+styles.map(function(e){
+                if (/^\s*@/.test(e) || e=="}") return e;
+                return ("."+prefixCss+e).replace(/\s+/g,' ');
+              }).join(rn)+rn;
+          
+          return ('<'+'style id="' + prefixCss + '" data-count="0">' + s +'</'+'style>');
         }
       }
     
@@ -2876,7 +2883,7 @@
   
   function _style ($o, manifest, localOnly) {
     // converts .style section of manifest
-    // into two css rile lists for form
+    // into two css rule lists for the form
     var  aglob=[], aloc=[], man=manifest;
     if (!isO(man) || !isO(man.style)) return "";
   
@@ -2884,21 +2891,27 @@
     return [aglob, aloc];
   
   
-    function crawl (branch0, key, aglob, aloc){
-      var i, j, b, a, branch = branch0;
+    function crawl (branch0, key0, aglob, aloc){
+      var i, j, k, b, a, 
+          branch = branch0,
+          isMedia = /@/.test(key0),
+          key = key0.split("@")[0],
+          isFn = isF(branch);
+      
+      if (isMedia) (isFn?aloc:aglob).push ("@"+key0.split("@")[1].trim()+" {");
+  
       if (isS(branch)) {
-        if (/[\r\n]/.test(branch) || branch.split("}",3).length>2) {
-          branch = f.css2json(branch);
-        }
+        if (/[\r\n]/.test(branch) || branch.split("}", 3).length>2) branch = f.css2json(branch);
         else aglob.push(key+(/\{/.test(branch)?branch:'{'+branch+'}'));
       }
       if (isA(branch) && branch.length) {
-        for (i=0;i<branch.length; i++) crawl(branch[i], key, aglob, aloc);
+        for (i=0; i<branch.length; i++) crawl(branch[i], key, aglob, aloc);
       }
       else if (isO(branch)) {
-        for (i in branch) {
-          a = unfold(key, i);
-          for (j=0;j<a.length;j++) crawl(branch[i],a[j], aglob, aloc);
+        k = Keys(branch);
+        for (i=0; i<k.length; i++) {
+          a = unfold(key, k[i]);
+          for (j=0; j<a.length; j++) crawl(branch[k[i]], a[j], aglob, aloc);
         }
       }
       else if (isF(branch)) {
@@ -2907,12 +2920,13 @@
           crawl (b, key, aloc, aloc);
         } catch (e) {}
       }
+      if (isMedia) (isFn?aloc:aglob).push ("}");
     }
   
     function unfold (key, selector) {
-      var pre="", ext=selector+"", a;
-      if (" "===ext.to(1) || /^[a-z]/i.test(ext)) pre=" ";
-      a = ext.split(/\s*,\s*/).compact(true);
+      var pre = "", ext = selector+"", a;
+      if (" " === ext.to(1) || /^[a-z]/i.test(ext)) pre = " ";
+      a = ext.split(/\s*,\s{0,}/).compact(true);
       if (!a.length) a.push("");
       return a.map(function (e) {return key+pre+e;});
     }
@@ -3015,7 +3029,8 @@
     //applies conditional formatting
     var i, $box, d, oui, p, val, css, oc,
         selector, $root, $we, ui,
-        isForm = false, isList = false,
+        isForm = false, 
+        isList = false,
         $this = $o,
         xdata = $this.my(),
         err="";
@@ -3027,20 +3042,24 @@
       $we = $root.find(selector);
       ui = $root.my().ui;
       isForm = $o.hasClass("my-form");
-      isList = $o.hasClass("my-form-list");
       if (isForm){
-        $box = $o; d = xdata.ddata; oui = xdata.dui; p =  xdata.dparams;
+        $box = $o; d = xdata.ddata; 
+        oui = xdata.dui; 
+        p =  xdata.dparams;
       }
       else {
-        $box = xdata.container; d = xdata.data; oui = xdata.ui; p =  xdata.params;
+        $box = xdata.container; 
+        d = xdata.data; 
+        oui = xdata.ui; 
+        p =  xdata.params;
       }
-      //exec bind if any
+      // Exec bind if any
       if (oui.bind != N) {
         if (n(value)) val = value;
-        else val = _field($we,_bind(d,N,oui,$we));
+        else val = _field($we, _bind(d, N, oui, $we));
   
-        //validating and storing if correct
-        //applying or removing error styles
+        // validating and storing if correct
+        // applying or removing error styles
         if (N != oui.check) {
           err="Unknown error";
           try { err = _validate(d, val, oui, $we); }
@@ -3053,39 +3072,46 @@
         try {
           if (N != value) val = _field($we, _bind(d, value, oui, $we));
         }
-        catch (e) { err=p.messages.formError || "Error"; }
+        catch (e) { err = p.messages.formError || "Error"; }
+        
+        if (N != oui.check) {
+          
+          isList = $o.hasClass("my-form-list");
+          
+          if (err=="" && $box.hasClass(ec)) {
+            if (!isForm) xdata.errors[selector]= "";
+            else xdata.derrors[selector]= "";
+            $box.removeClass(ec);
+            if ($box.attr("title")) $box.attr("title","");
+            if (!isForm && !isList) p.effect($box.find(p.errorTip), false, (p.animate/2));
+            $this.removeClass(jqec); 
+            $this.find(".ui-widget").removeClass(jqec);
+          } 
+          else if (err) {
+            if (isForm)  xdata.derrors[selector]= err+"";
+            else if (isList) xdata.errors[selector]= err+"";
+            else {
+              $box.addClass(ec);
+              xdata.errors[selector] = err+"";
+              var $tip=$box.find(p.errorTip).eq(0);
+              if ($tip.size()){
+                p.effect($tip.addClass(ec).html(err), true, p.animate);
+              } else {
+                $box.attr("title",err+"".stripTags());
+              }
+            }
   
-        if (err=="" && $box.hasClass(ec)) {
-          if (!isForm) xdata.errors[selector]= "";
-          else xdata.derrors[selector]= "";
-          $box.removeClass(ec);
-          if ($box.attr("title")) $box.attr("title","");
-          if (!isForm && !isList) p.effect($box.find(p.errorTip), false ,(p.animate/2));
-          $this.removeClass(jqec); 
-          $this.find(".ui-widget").removeClass(jqec);
-        } 
-        else if (err) {
-          if (isForm)  xdata.derrors[selector]= err;
-          else if (isList) xdata.errors[selector]= err;
-          else {
-            $box.addClass(ec);
-            xdata.errors[selector]= err;
-            var $tip=$box.find(p.errorTip).eq(0);
-            if ($tip.size()){
-              p.effect($tip.addClass(ec).html(err), true, p.animate);
-            } else $box.attr("title",(err || "").stripTags());
+            if ($this.hasClass("hasDatepicker")) {
+              if ($this.is("input")) $this.addClass(jqec);
+              else $this.find(".ui-widget").addClass(jqec);
+            }
+            if ($this.hasClass("ui-slider")) $this.addClass(jqec);
           }
-  
-          if ($this.hasClass("hasDatepicker")) {
-            if ($this.is("input")) $this.addClass(jqec);
-            else $this.find(".ui-widget").addClass(jqec);
-          }
-          if ($this.hasClass("ui-slider")) $this.addClass(jqec);
         }
       }
       
       
-      //applying conditional formatting if any
+      // Applying conditional formatting if any
       var cssval = (value==N?val:value);
       if (oui.css) {
         for (css in oui.css) {
@@ -3095,7 +3121,7 @@
         }
       }
   
-      //recalculating dependent fields
+      // Recursively recalculating dependent fields
       var i, list = oui.recalc, dest = [], once = {}, item;
   
       if (depth && oui.recalc &&  $root.my()) {
@@ -3800,8 +3826,11 @@
       hardClose:true,
 
       nose: "", 
-      width:width0||300, height:null,
-      x:"0", y:"0", z:"1901", 
+      width:width0||300, 
+      height:null,
+      x:"0", 
+      y:"0", 
+      z:"1901", 
       background:"white",
       css:"",
       animate:200
@@ -4016,6 +4045,28 @@
         else $m.draggable({handle: m.drag});
         if (m.nose) $m.on("dragstart.my", function(){$m.removeClass("nose-"+m.nose);});
       }
+      
+      // Auto popup
+      $m.on("mousedown.my", function(evt){
+        var a=[],
+            $m, 
+            $e = $(evt.currentTarget), 
+            $r = $e.parent(),
+            z = +$e.css("z-index"),
+            zmax = z;
+        if ($r.size()) {
+          $m = $r.find(">.my-modal")
+          .each(function(i,e){
+            var zi = +$(e).css("z-index");
+            if (e != evt.currentTarget && zi>=z) a.push([zi, $(e)]);
+            if (zi>zmax) zmax = zi;
+          });
+          a.forEach(function(r){
+            r[1].css("z-index", (r[0]-1)+"");
+          });
+          $e.css("z-index",zmax+"");
+        }
+      })
 
       pi.notify("Ready");
     })
@@ -4207,7 +4258,7 @@
         // root may not exist
         $r.data("modals")[m.cid] = null; 
       } catch(e){}
-      $f.parent().unbind(".my").remove();
+      $f.parent().off(".my").remove();
       $bg.off(".my"+ m.cid);
       if (m.screen) {
         (function(g){

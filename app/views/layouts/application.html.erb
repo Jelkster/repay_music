@@ -11,24 +11,51 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
+    <%= yield :meta_description %>
   </head>
 
   <body>
-    <div class="container">
-      <h1>Repay Music</h1>
-      <p>
-        A place where fans can make money by recommending music, <br>
-        and artists can get paid for making it.
-      </p>
+    <div class="container-fluid">
+      <div class="collapse" id="exCollapsingNavbar">
+        <div class="bg-inverse p-a-1">
+          <h4>Thanks for checking us out!</h4>
+          <span class="text-muted">Stay tuned.</span>
+        </div>
+      </div>
 
-      <div id="youtube">
-        <iframe width="420" height="315" src="https://www.youtube.com/embed/daKHovByLJ4" frameborder="0" allowfullscreen></iframe>
-      </div>
-      <p></p>
-  
-      <div id="yield">
-        <%= yield %>
-      </div>
+      <header>
+        <nav class="navbar navbar-full navbar-dark bg-inverse">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+            &#9776;
+          </button>
+          <a class="navbar-brand" href="#"><span class="r">r</span>\m/ <span class="repay">Repay</span> Music</a>
+          <span class="coming-soon">&nbsp;&nbsp;COMING SOON</span>
+          <div class="navlinks">
+            <a href="https://www.facebook.com/RepayMusic/"><i class="fa fa-facebook-f fa-lg"></i></a>
+            <a href="https://twitter.com/repaymusic"><i class="fa fa-twitter fa-lg"></i></a>
+            <a href="https://repaymusic-slack.herokuapp.com/"><i class="fa fa-slack fa-lg"></i></a>
+            <a href="https://github.com/Jelkster/repay_music"><i class="fa fa-github fa-lg"></i></a>
+          </div>
+        </nav>
+
+        <div class="container">
+          <p id="tagline" class="lead">
+            A place where fans can make money by recommending music, <br class="hidden-sm-down">
+            and artists can get paid for making it.
+          </p>
+        </div>
+      </header>
+
+      <main role="main">
+        <div id="yield" class="container">
+          <%= yield %>
+        </div>
+      </main>
+
+      <footer class="row">
+        <div class="col-xs-12 text-xs-center">&copy; <%= local_time(Time.now, '%Y') %> <span class="r">r</span>\m/</div>
+      </footer>
     </div>
   </body>
 </html>

@@ -11,4 +11,3 @@ class Home
 
 $ ->
   new Home
-  

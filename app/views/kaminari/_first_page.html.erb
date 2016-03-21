@@ -1,0 +1,8 @@
+<li class="page-item">
+  <% unless current_page.first? %>
+    <a class="page-link" href="<%= url %>" aria-label="Previous" data-remote="<%= remote %>">
+      <span aria-hidden="true">&laquo; First</span>
+      <span class="sr-only">Previous</span>
+    </a>
+  <% end %>
+</li>

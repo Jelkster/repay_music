@@ -1,8 +1,16 @@
 GIT
   remote: git://github.com/DatabaseCleaner/database_cleaner.git
-  revision: 284019742c038ed66bc6fb9c291c64e7e639eeee
+  revision: f318781a77228f5999f5f2371c12f59089c141f3
   specs:
     database_cleaner (1.5.1)
+
+GIT
+  remote: git://github.com/amatsuda/kaminari.git
+  revision: 3974ae5f39ce31bfca28d17eccd8daf3ca263aa3
+  specs:
+    kaminari (1.0.0.alpha)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
 
 GIT
   remote: git://github.com/cheezy/page-object.git
@@ -26,16 +34,16 @@ GIT
 
 GIT
   remote: git://github.com/rails/rails-controller-testing.git
-  revision: ce370fe8488385d3a465b0a97376c8d9ab3e24af
+  revision: 24dd0199536c26370979416280260978183a0c3e
   specs:
-    rails-controller-testing (0.1.0)
+    rails-controller-testing (0.1.1)
       actionpack (~> 5.x)
       actionview (~> 5.x)
       activesupport (~> 5.x)
 
 GIT
   remote: git://github.com/rails/rails.git
-  revision: 65b2cfadddeaa3b077332f4c2a7848321255495a
+  revision: dda31d59a03adb7e5aa372e72bb66a3886632f2f
   specs:
     actioncable (5.0.0.beta3)
       actionpack (= 5.0.0.beta3)
@@ -95,14 +103,14 @@ GIT
 
 GIT
   remote: git://github.com/rspec/rspec-core.git
-  revision: f54edeed49799042b8fffddb278466fb7185314e
+  revision: e23fc922d477c2cf66370f329b9238b9404d6018
   specs:
     rspec-core (3.5.0.pre)
       rspec-support (= 3.5.0.pre)
 
 GIT
   remote: git://github.com/rspec/rspec-expectations.git
-  revision: ba6fe09ef90ef8ca84ba5044e9668c09acdc3d60
+  revision: eb5113d77460faca78e9241c91b771b0f9689946
   specs:
     rspec-expectations (3.5.0.pre)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -110,7 +118,7 @@ GIT
 
 GIT
   remote: git://github.com/rspec/rspec-mocks.git
-  revision: 86e69908f3ed61c0c2c7a8ff934882310f2d9785
+  revision: d17eab3c9565a93fd5f03a25ba60db688700396f
   specs:
     rspec-mocks (3.5.0.pre)
       diff-lcs (>= 1.2.0, < 2.0)
@@ -118,7 +126,7 @@ GIT
 
 GIT
   remote: git://github.com/rspec/rspec-rails.git
-  revision: 41628f82e70a7d66c70b554e42544a65790da19c
+  revision: 682a12067eab233c646057f984692e3b70749f32
   specs:
     rspec-rails (3.5.0.pre)
       actionpack (>= 3.0)
@@ -131,7 +139,7 @@ GIT
 
 GIT
   remote: git://github.com/rspec/rspec-support.git
-  revision: 3c86358e132970c96d31e9f6c3aea508b9b4e094
+  revision: 823954932e64ad2dc7eaebce59c1c82304f63797
   specs:
     rspec-support (3.5.0.pre)
 
@@ -152,7 +160,7 @@ GIT
 
 GIT
   remote: git://github.com/twbs/bootstrap-rubygem.git
-  revision: 59a78d6f71e79f73a954a87a4b3769d9c85c49f2
+  revision: 23b55fc0e064a9ccc105320ba8f05c99b7fad61a
   specs:
     bootstrap (4.0.0.alpha3)
       autoprefixer-rails (>= 6.0.3)
@@ -184,7 +192,7 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.1)
-    cucumber (2.3.2)
+    cucumber (2.3.3)
       builder (>= 2.1.2)
       cucumber-core (~> 1.4.0)
       cucumber-wire (~> 0.0.1)
@@ -210,21 +218,28 @@ GEM
     ffi (1.9.10)
     figaro (1.1.1)
       thor (~> 0.14)
+    font-awesome-rails (4.5.0.1)
+      railties (>= 3.2, < 5.1)
     gherkin (3.2.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    goldiloader (0.0.10)
+      activerecord (>= 3.2, < 5.1)
+      activesupport (>= 3.2, < 5.1)
     i18n (0.7.0)
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
-    jquery-rails (4.1.0)
-      rails-dom-testing (~> 1.0)
+    jquery-rails (4.1.1)
+      rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
     listen (3.0.6)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9.7)
+    local_time (1.0.3)
+      coffee-rails
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -241,7 +256,7 @@ GEM
     page_navigation (0.9)
       data_magic (>= 0.14)
     pg (0.18.4)
-    puma (3.0.2)
+    puma (3.1.1)
     rack (2.0.0.alpha)
       json
     rack-test (0.6.3)
@@ -254,7 +269,12 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
-    rake (10.5.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.4)
+    rake (11.1.1)
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
@@ -266,9 +286,8 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    selenium-webdriver (2.52.0)
+    selenium-webdriver (2.53.0)
       childprocess (~> 0.5)
-      multi_json (~> 1.0)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
     spring (1.6.4)
@@ -278,7 +297,7 @@ GEM
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
-    sprockets-rails (3.0.3)
+    sprockets-rails (3.0.4)
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
@@ -319,14 +338,19 @@ DEPENDENCIES
   ejs
   factory_girl_rails!
   figaro
+  font-awesome-rails
+  goldiloader
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari!
   listen (~> 3.0.5)
+  local_time
   page-object!
   pg (~> 0.18)
   puma
   rails!
   rails-controller-testing!
+  rails_12factor
   rspec-core!
   rspec-expectations!
   rspec-mocks!

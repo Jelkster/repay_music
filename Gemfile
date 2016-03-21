@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.3.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', github: 'rails/rails' # '>= 5.0.0.beta3', '< 5.1'
@@ -30,6 +31,14 @@ gem 'sugar-rails'
 gem 'underscore-rails'
 # Client side templates. Read more: https://alternatelabs.co/blog/rails-js-templates
 gem 'ejs'
+# Just the right amount of Rails eager loading
+gem 'goldiloader'
+# Rails engine with helpers and JavaScript for displaying times and dates to users in their local time.
+gem 'local_time'
+# Font and CSS toolkit. Read more: http://fortawesome.github.io/Font-Awesome/
+gem 'font-awesome-rails'
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for modern web app frameworks and ORMs
+gem 'kaminari', github: 'amatsuda/kaminari'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
@@ -67,6 +76,12 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :production do
+  gem 'rails_12factor' # https://devcenter.heroku.com/articles/getting-started-with-rails5
+  gem 'newrelic_rpm'
+  gem 'rack-timeout' # https://devcenter.heroku.com/articles/deploying-rails-applications-with-the-puma-web-server#timeout
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
