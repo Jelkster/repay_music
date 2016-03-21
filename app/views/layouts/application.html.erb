@@ -24,34 +24,37 @@
         </div>
       </div>
 
-      <header>
-        <nav class="navbar navbar-full navbar-dark bg-inverse">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
-            &#9776;
-          </button>
-          <a class="navbar-brand" href="#"><span class="r">r</span>\m/ <span class="repay">Repay</span> Music</a>
-          <span class="coming-soon">&nbsp;&nbsp;COMING SOON</span>
-          <div class="navlinks">
-            <a href="https://www.facebook.com/RepayMusic/"><i class="fa fa-facebook-f fa-lg"></i></a>
-            <a href="https://twitter.com/repaymusic"><i class="fa fa-twitter fa-lg"></i></a>
-            <a href="https://repaymusic-slack.herokuapp.com/"><i class="fa fa-slack fa-lg"></i></a>
-            <a href="https://github.com/Jelkster/repay_music"><i class="fa fa-github fa-lg"></i></a>
+      <div class="header-main-wrapper">
+        <header>
+          <nav class="navbar navbar-full navbar-dark bg-inverse">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+              &#9776;
+            </button>
+            <a class="navbar-brand" href="#"><span class="r">r</span>\m/ <span class="repay">Repay</span> Music</a>
+            <span class="coming-soon">&nbsp;&nbsp;COMING SOON</span>
+            <div class="navlinks">
+              <a href="https://www.facebook.com/RepayMusic/"><i class="fa fa-facebook-f fa-lg"></i></a>
+              <a href="https://twitter.com/repaymusic"><i class="fa fa-twitter fa-lg"></i></a>
+              <a href="https://repaymusic-slack.herokuapp.com/"><i class="fa fa-slack fa-lg"></i></a>
+              <a href="https://github.com/Jelkster/repay_music"><i class="fa fa-github fa-lg"></i></a>
+            </div>
+          </nav>
+
+          <div class="container">
+            <p id="tagline" class="lead">
+              A place where fans can make money by recommending music, <br class="hidden-sm-down">
+              and artists can get paid for making it.
+            </p>
           </div>
-        </nav>
+        </header>
 
-        <div class="container">
-          <p id="tagline" class="lead">
-            A place where fans can make money by recommending music, <br class="hidden-sm-down">
-            and artists can get paid for making it.
-          </p>
-        </div>
-      </header>
 
-      <main role="main">
-        <div id="yield" class="container">
-          <%= yield %>
-        </div>
-      </main>
+        <main role="main">
+          <div id="yield" class="container">
+            <%= yield %>
+          </div>
+        </main>
+      </div>
 
       <footer class="row">
         <div class="col-xs-12 text-xs-center">&copy; <%= local_time(Time.now, '%Y') %> <span class="r">r</span>\m/</div>
