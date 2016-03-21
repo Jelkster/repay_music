@@ -5,13 +5,13 @@
 
 $logo-blue: #2ba6cb;
 
-body {
-  background: #f1f1f1;
+html, body {
+  height: 100%;
+  background: #373a3c;
   overflow-x: hidden;
 }
 
 footer {
-  background: #373a3c;
   color: white;
   height: 100px;
   padding-top: 10px;
@@ -22,7 +22,8 @@ footer {
 }
 
 main {
-  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  background: #f1f1f1;
 }
 
 nav {
@@ -43,6 +44,10 @@ nav {
 
 .container-fluid {
   padding: 0;
+  header {
+    background: #f1f1f1;
+    height: 100%;
+  }
 }
 
 .navbar-brand {
