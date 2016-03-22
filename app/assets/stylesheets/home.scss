@@ -5,8 +5,10 @@
 
 $logo-blue: #2ba6cb;
 
-body {
+html, body {
+  max-width: 100%;
   overflow-x: hidden;
+  color: black;
 }
 
 footer {
@@ -46,14 +48,18 @@ nav {
   left: 0;
   top: 0;
   padding: 0;
-  background: #373a3c;
+  background: black;
   z-index: -5;
+  overflow-x: hidden;
 }
 
 .header-main-wrapper {
   position: relative;
   background: #f1f1f1;
   z-index: -4;
+  nav {
+    background: black;
+  }
 }
 
 .navbar-brand {
