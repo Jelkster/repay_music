@@ -13,7 +13,7 @@ html, body{
 
 footer {
   color: white;
-  height: 80px;
+  height: 100px;
   padding-top: 10px;
   .r {
     color: $logo-blue;
@@ -47,10 +47,11 @@ nav {
   min-height: 100%;
   left: 0;
   top: 0;
-  padding: 0 0 20px 0;
+  padding: 0;
   background: black;
   z-index: -5;
   overflow-x: hidden;
+  border-bottom: 50px solid red;
 }
 
 .header-main-wrapper {
