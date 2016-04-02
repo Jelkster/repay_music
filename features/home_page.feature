@@ -5,4 +5,4 @@ Feature: Home page
 
   Scenario: Viewing home page
     Given I am viewing the home page
-    Then I should see a music video related to the last donation
+    Then I should be presented with music related to the last donation

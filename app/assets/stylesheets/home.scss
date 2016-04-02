@@ -2,3 +2,138 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+$logo-blue: #2ba6cb;
+
+html, body{  
+  overflow-x: hidden;
+  max-width: 100%;
+  color: black;
+  background-color: black;
+}
+
+footer {
+  color: white;
+  height: 100px;
+  padding-top: 10px;
+  .r {
+    color: $logo-blue;
+    margin-right: 3px;
+  }
+}
+
+main {
+  padding-bottom: 2.5rem;
+}
+
+nav {
+  .r {
+    color: $logo-blue;
+    margin-right: 3px;
+  }
+  .repay {
+    color: $logo-blue;
+  }
+}
+
+.coming-soon {
+  color: orange;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.container-fluid {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  left: 0;
+  top: 0;
+  padding: 0;
+  background: black;
+  z-index: -5;
+  overflow-x: hidden;
+}
+
+.header-main-wrapper {
+  position: relative;
+  background: #f1f1f1;
+  z-index: -4;
+  nav {
+    background: black;
+  }
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+.navlinks {
+  float: right;
+  display: inline;
+  margin-top: 0.2rem;
+  font-size: 20px;
+  a {
+    color: white;
+    &:hover {
+      color: #0687f5;
+    }
+  }
+}
+
+#intro-cards {
+  .embed-responsive {
+    background: black;
+    color: white;
+    .loading {
+      text-align: center;
+    }
+  }
+  .embed-responsive.bandcamp {
+    background: #888888;
+    color: white;
+  }
+  .embed-responsive.spotify {
+    background: #282828;
+    color: white;
+  }
+}
+
+#jumbotron {
+  margin-bottom: 2.5rem;
+  .amount {
+    font-weight: bold;
+  }
+  .artist-name {
+    color: #0687f5;
+    font-weight: bold;
+  }
+  .display-name {
+    color: #0687f5;
+    font-weight: bold;
+  }
+  .dollar {
+    margin-right: 1px;
+    font-weight: bold;
+  }
+  .loading {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: -1;
+  }
+  .metal {
+    font-weight: bold;
+  }
+}
+
+#tagline {
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+@include media-breakpoint-up(xs) { }
+@include media-breakpoint-up(sm) { }
+@include media-breakpoint-up(md) { }
+@include media-breakpoint-up(lg) { }
+@include media-breakpoint-up(xl) { }

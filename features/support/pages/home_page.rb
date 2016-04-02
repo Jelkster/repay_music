@@ -3,5 +3,5 @@ class HomePage
 
   page_url $page_config['base_url']
 
-  div :youtube, id: 'youtube'
+  div :jumbotron, id: 'jumbotron'
 end

@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :donations
+  concern :paginatable do
+    get '(page/:page)', :action => :index, :on => :collection, :as => ''
+  end
+
+  resources :donations, :concerns => :paginatable
+  
   get 'home/index'
 
   root to: 'home#index'
