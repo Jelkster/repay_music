@@ -16,6 +16,9 @@ footer {
   color: white;
   height: 100px;
   padding-top: 10px;
+  .copyright {
+    padding-top: 20px;
+  }
   .r {
     color: $logo-blue;
     margin-right: 3px;
@@ -23,7 +26,7 @@ footer {
 }
 
 main {
-  padding-bottom: 2.5rem;
+  // padding-bottom: 2.5rem;
 }
 
 nav {
@@ -60,6 +63,21 @@ nav {
   z-index: -4;
   nav {
     background: black;
+  }
+}
+
+.intro {
+  margin-bottom: 60px;
+}
+
+.latest-donation-request {
+  color: white;
+  background-color: black;
+  h1 {
+    font-size: 150px;
+  }
+  .lead {
+    padding-top: 60px;
   }
 }
 

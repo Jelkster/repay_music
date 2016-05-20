@@ -15,7 +15,7 @@
 
 Install gems:
 ```
-$ bundle update
+$ bundle install
 ```
 
 Create config file to hold environment variables:
