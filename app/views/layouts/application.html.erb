@@ -50,14 +50,14 @@
 
 
         <main role="main">
-          <div id="yield" class="container">
+          <div id="yield">
             <%= yield %>
           </div>
         </main>
       </div>
 
       <footer class="row">
-        <div class="col-xs-12 text-xs-center">&copy; <%= local_time(Time.now, '%Y') %> <span class="r">r</span>\m/</div>
+        <div class="copyright col-xs-12 text-xs-center">&copy; <%= local_time(Time.now, '%Y') %> <span class="r">r</span>\m/</div>
       </footer>
     </div>
   </body>
