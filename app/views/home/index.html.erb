@@ -21,15 +21,32 @@
 <div class="latest-donation-request">
   <div class="container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-xs-12">
         <center>
           <p class="lead">Latest Donation Request</p>
-          <h1>Aegaeon</h1><br><br>
+          <h1 class="artist">Aegaeon</h1>
           <div class="embed-responsive embed-responsive-16by9">
             <%= render 'loading' %>
             <iframe src="https://www.youtube.com/embed/Tc8aid6N5YY" allowfullscreen></iframe>
           </div>
           <small class="text-muted"><%= local_time_ago Time.now %> by Ryan Jelks</small>
+        </center>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="featured-podcast">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <center>
+          <p class="lead">Featured Podcast</p>
+          <h1 class="name">Headbanging Honkeys</h1>
+          <div class="embed-responsive embed-responsive-16by9">
+            <%= render 'loading' %>
+            <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/249599870&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+          </div>
         </center>
       </div>
     </div>

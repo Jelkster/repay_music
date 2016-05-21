@@ -15,7 +15,7 @@ html, body{
 footer {
   color: white;
   height: 100px;
-  padding-top: 10px;
+  padding-top: 25px;
   .copyright {
     padding-top: 20px;
   }
@@ -57,6 +57,14 @@ nav {
   overflow-x: hidden;
 }
 
+.featured-podcast {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  .name {
+    margin-bottom: 50px;
+  }
+}
+
 .header-main-wrapper {
   position: relative;
   background: #f1f1f1;
@@ -71,9 +79,11 @@ nav {
 }
 
 .latest-donation-request {
+  padding-bottom: 60px;
   color: white;
   background-color: black;
-  h1 {
+  .artist {
+    margin-bottom: 50px;
     font-size: 150px;
   }
   .lead {
@@ -150,8 +160,34 @@ nav {
   font-weight: 400;
 }
 
-@include media-breakpoint-up(xs) { }
+@include media-breakpoint-up(xs) { 
+  .latest-donation-request {
+    padding-bottom: 60px;
+    color: white;
+    background-color: black;
+    .artist {
+      margin-bottom: 50px;
+      font-size: 75px;
+    }
+    .lead {
+      padding-top: 60px;
+    }
+  }
+}
 @include media-breakpoint-up(sm) { }
 @include media-breakpoint-up(md) { }
-@include media-breakpoint-up(lg) { }
+@include media-breakpoint-up(lg) { 
+  .latest-donation-request {
+    padding-bottom: 60px;
+    color: white;
+    background-color: black;
+    .artist {
+      margin-bottom: 50px;
+      font-size: 150px;
+    }
+    .lead {
+      padding-top: 60px;
+    }
+  }
+}
 @include media-breakpoint-up(xl) { }
