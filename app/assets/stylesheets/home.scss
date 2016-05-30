@@ -3,6 +3,7 @@
   They will automatically be included in application.css.
 */
 
+$link-blue: #0687f5;
 $logo-blue: #2ba6cb;
 
 html, body{  
@@ -25,10 +26,6 @@ footer {
   }
 }
 
-main {
-  // padding-bottom: 2.5rem;
-}
-
 nav {
   .r {
     color: $logo-blue;
@@ -45,7 +42,7 @@ nav {
   white-space: nowrap;
 }
 
-.container-fluid {
+.main.container-fluid {
   position: absolute;
   width: 100%;
   min-height: 100%;
@@ -78,20 +75,26 @@ nav {
   margin-bottom: 60px;
 }
 
-.latest-donation-request {
-  padding-bottom: 60px;
-  color: white;
-  background-color: black;
-  .artist {
-    margin-bottom: 50px;
-    font-size: 150px;
+@mixin latest-donation-request($fontsize) {
+  .latest-donation-request {
+    color: white;
+    background-color: black;
+    padding-bottom: 60px;
+    .artist {
+      margin-bottom: 50px;
+      font-size: $fontsize;
+    }
+    .fan {
+      padding-top: 20px;
+    }
+    .lead {
+      padding-top: 60px;
+    }
   }
-  .lead {
-    padding-top: 60px;
-  }
-  .fan {
-    padding-top: 20px;
-  }
+}
+
+.link-blue {
+  color: $link-blue;
 }
 
 .navbar-brand {
@@ -106,8 +109,21 @@ nav {
   a {
     color: white;
     &:hover {
-      color: #0687f5;
+      color: $link-blue;
     }
+  }
+}
+
+.recent-donations-requests {
+  @include gradient-horizontal(#373a3c, #000);
+  padding-bottom: 60px;
+  .lead {
+    padding-top: 60px;
+    padding-bottom: 30px;
+    color: white;
+  }
+  .loading {
+    color: white;
   }
 }
 
@@ -135,11 +151,11 @@ nav {
     font-weight: bold;
   }
   .artist-name {
-    color: #0687f5;
+    color: $link-blue;
     font-weight: bold;
   }
   .display-name {
-    color: #0687f5;
+    color: $link-blue;
     font-weight: bold;
   }
   .dollar {
@@ -157,6 +173,19 @@ nav {
   }
 }
 
+#recent-donation-cards {
+  .amount {
+    color: $link-blue;
+  }
+  .embed-responsive {
+    background: black;
+    color: white;
+    .loading {
+      text-align: center;
+    }
+  }
+}
+
 #tagline {
   margin-top: 0.5rem;
   margin-bottom: 2rem;
@@ -164,33 +193,11 @@ nav {
 }
 
 @include media-breakpoint-up(xs) { 
-  .latest-donation-request {
-    padding-bottom: 60px;
-    color: white;
-    background-color: black;
-    .artist {
-      margin-bottom: 50px;
-      font-size: 75px;
-    }
-    .lead {
-      padding-top: 60px;
-    }
-  }
+  @include latest-donation-request(2.5rem);
 }
 @include media-breakpoint-up(sm) { }
 @include media-breakpoint-up(md) { }
 @include media-breakpoint-up(lg) { 
-  .latest-donation-request {
-    padding-bottom: 60px;
-    color: white;
-    background-color: black;
-    .artist {
-      margin-bottom: 50px;
-      font-size: 150px;
-    }
-    .lead {
-      padding-top: 60px;
-    }
-  }
+  @include latest-donation-request(100px);
 }
 @include media-breakpoint-up(xl) { }
