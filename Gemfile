@@ -41,6 +41,8 @@ gem 'font-awesome-rails'
 gem 'kaminari', github: 'amatsuda/kaminari'
 # Manage environment variables
 gem 'figaro'
+# Flexible authentication solution
+gem 'devise'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'

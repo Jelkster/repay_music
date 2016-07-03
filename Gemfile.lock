@@ -174,6 +174,7 @@ GEM
     ast (2.2.0)
     autoprefixer-rails (6.3.3.1)
       execjs
+    bcrypt (3.1.11)
     builder (3.2.2)
     byebug (8.2.2)
     capybara (2.6.2)
@@ -208,6 +209,12 @@ GEM
       faker (>= 1.1.2)
       yml_reader (>= 0.6)
     debug_inspector (0.0.2)
+    devise (4.1.1)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 5.1)
+      responders
+      warden (~> 1.2.3)
     diff-lcs (1.2.5)
     ejs (1.1.1)
     erubis (2.7.0)
@@ -255,6 +262,7 @@ GEM
     nio4r (1.2.1)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    orm_adapter (0.5.0)
     page_navigation (0.9)
       data_magic (>= 0.14)
     parser (2.3.1.2)
@@ -285,6 +293,8 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    responders (2.2.0)
+      railties (>= 4.2.0, < 5.1)
     rubocop (0.40.0)
       parser (>= 2.3.1.0, < 3.0)
       powerpack (~> 0.1)
@@ -327,6 +337,8 @@ GEM
       json (>= 1.8.0)
     underscore-rails (1.8.3)
     unicode-display_width (1.0.5)
+    warden (1.2.6)
+      rack (>= 1.0)
     watir-webdriver (0.9.1)
       selenium-webdriver (>= 2.46.2)
     web-console (3.1.1)
@@ -350,6 +362,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   cucumber-rails!
   database_cleaner!
+  devise
   ejs
   factory_girl_rails!
   figaro
@@ -384,5 +397,8 @@ DEPENDENCIES
   underscore-rails
   web-console (~> 3.0)
 
+RUBY VERSION
+   ruby 2.3.1p112
+
 BUNDLED WITH
-   1.11.2
+   1.12.5
