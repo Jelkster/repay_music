@@ -3,28 +3,28 @@ source 'https://rubygems.org'
 ruby '2.3.1'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', github: 'rails/rails' # '>= 5.0.0.beta3', '< 5.1'
+gem 'rails', '~> 5.0.0' # , github: 'rails/rails'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/turbolinks/turbolinks
-# gem 'turbolinks', github: 'turbolinks/turbolinks' # '~> 5.x' 
+# gem 'turbolinks', github: 'turbolinks/turbolinks' # '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder', '~> 2.5'
 # Use Puma as the app server
-gem 'puma'
+gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
-gem 'sass-rails'
+gem 'sass-rails', '~> 5.0'
 # Sleek, intuitive, and powerful front-end framework for faster and easier web development.
-gem 'bootstrap', github: 'twbs/bootstrap-rubygem' # '~> 4.0.0.alpha3'
+gem 'bootstrap', github: 'twbs/bootstrap-rubygem', ref: '23b55fc0e064a9ccc105320ba8f05c99b7fad61a' # '~> 4.0.0.alpha3'
 # Extends native javascript objects with helpful methods (jquerymy dependency => http://jquerymy.com/). Read more: http://sugarjs.com/
 gem 'sugar-rails'
 # JavaScript library that provides a whole mess of useful functional programming helpers without extending any built-in objects. Read more: http://underscorejs.org/
@@ -54,26 +54,26 @@ gem 'devise'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'byebug', platform: :mri
   # Behaviour Driven Development for Ruby.
-  gem 'rspec-core', github: 'rspec/rspec-core'
-  gem 'rspec-expectations', github: 'rspec/rspec-expectations'
-  gem 'rspec-mocks', github: 'rspec/rspec-mocks'
-  gem 'rspec-rails', github: 'rspec/rspec-rails'
-  gem 'rspec-support', github: 'rspec/rspec-support'
-  gem 'rails-controller-testing', github: 'rails/rails-controller-testing' # https://github.com/rspec/rspec-rails/issues/1393
-  gem 'cucumber-rails', require: false, github: 'cucumber/cucumber-rails'
-  gem 'database_cleaner', github: 'DatabaseCleaner/database_cleaner'
-  gem 'page-object', github: 'cheezy/page-object'
+  # gem 'rspec-core', github: 'rspec/rspec-core'
+  # gem 'rspec-expectations', github: 'rspec/rspec-expectations'
+  # gem 'rspec-mocks', github: 'rspec/rspec-mocks'
+  gem 'rspec-rails', '~> 3.5' #github: 'rspec/rspec-rails'
+  # gem 'rspec-support', github: 'rspec/rspec-support'
+  gem 'rails-controller-testing' # , github: 'rails/rails-controller-testing' # https://github.com/rspec/rspec-rails/issues/1393
+  # gem 'cucumber-rails', require: false, github: 'cucumber/cucumber-rails'
+  gem 'database_cleaner' # , github: 'DatabaseCleaner/database_cleaner'
+  gem 'page-object' # , github: 'cheezy/page-object'
   # One-liners that test common Rails functionality.
-  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
+  gem 'shoulda-matchers' # , github: 'thoughtbot/shoulda-matchers'
   # Fixtures replacement
-  gem 'factory_girl_rails', github: 'thoughtbot/factory_girl_rails'
+  gem 'factory_girl_rails' # , github: 'thoughtbot/factory_girl_rails'
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 3.0'
+  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
+  gem 'web-console'
   gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

@@ -10,7 +10,7 @@
 ## Getting Started
 
 #### Requirements
-- Ruby 2.3.0+
+- Ruby 2.3.1
 - PostgreSQL
 
 Install gems:
@@ -28,7 +28,7 @@ Add variables to config file:
 # config/application.yml
 
 db_username: <username>
-test_db: repay_music_test
+test_db: <dbname>
 base_url: <http://localhost:3000>
 ```
 
@@ -44,7 +44,7 @@ $ rails s
 
 ## Contributing
 
-0. [Fork it](https://github.com/Jelkster/repay_music/fork)
+0. Fork it
 1. Create your feature branch (`git checkout -b my-new-feature`)
 2. Commit your changes (`git commit -am 'Add some feature'`)
 3. Push to the branch (`git push origin my-new-feature`)
