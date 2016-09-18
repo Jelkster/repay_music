@@ -19,17 +19,16 @@ require 'rails_helper'
 # that an instance is receiving a specific message.
 
 RSpec.describe ArtistsController, type: :controller do
-
   # This should return the minimal set of attributes required to create a valid
   # Artist. As you add validations to Artist, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
+  let(:valid_attributes) do
     skip("Add a hash of attributes valid for your model")
-  }
+  end
 
-  let(:invalid_attributes) {
+  let(:invalid_attributes) do
     skip("Add a hash of attributes invalid for your model")
-  }
+  end
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -70,9 +69,9 @@ RSpec.describe ArtistsController, type: :controller do
   describe "POST #create" do
     context "with valid params" do
       it "creates a new Artist" do
-        expect {
+        expect do
           post :create, params: {artist: valid_attributes}, session: valid_session
-        }.to change(Artist, :count).by(1)
+        end.to change(Artist, :count).by(1)
       end
 
       it "assigns a newly created artist as @artist" do
@@ -102,9 +101,9 @@ RSpec.describe ArtistsController, type: :controller do
 
   describe "PUT #update" do
     context "with valid params" do
-      let(:new_attributes) {
+      let(:new_attributes) do
         skip("Add a hash of attributes valid for your model")
-      }
+      end
 
       it "updates the requested artist" do
         artist = Artist.create! valid_attributes
@@ -144,9 +143,9 @@ RSpec.describe ArtistsController, type: :controller do
   describe "DELETE #destroy" do
     it "destroys the requested artist" do
       artist = Artist.create! valid_attributes
-      expect {
+      expect do
         delete :destroy, params: {id: artist.to_param}, session: valid_session
-      }.to change(Artist, :count).by(-1)
+      end.to change(Artist, :count).by(-1)
     end
 
     it "redirects to the artists list" do
@@ -155,5 +154,4 @@ RSpec.describe ArtistsController, type: :controller do
       expect(response).to redirect_to(artists_url)
     end
   end
-
 end

@@ -59,7 +59,7 @@ group :development, :test do
   # gem 'rspec-core', github: 'rspec/rspec-core'
   # gem 'rspec-expectations', github: 'rspec/rspec-expectations'
   # gem 'rspec-mocks', github: 'rspec/rspec-mocks'
-  gem 'rspec-rails', '~> 3.5' #github: 'rspec/rspec-rails'
+  gem 'rspec-rails', '~> 3.5' # github: 'rspec/rspec-rails'
   # gem 'rspec-support', github: 'rspec/rspec-support'
   gem 'rails-controller-testing' # , github: 'rails/rails-controller-testing' # https://github.com/rspec/rspec-rails/issues/1393
   # gem 'cucumber-rails', require: false, github: 'cucumber/cucumber-rails'
