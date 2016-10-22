@@ -11,13 +11,13 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe ApplicationHelper, type: :helper do
-  describe '#currency' do
+  describe '#amount' do
     it 'shows cents if present' do
-      expect(helper.currency(6666.66)).to eq('$6,666.66')
+      expect(helper.amount(6666.66)).to eq('6,666.66')
     end
 
     it 'does not show cents unless present' do
-      expect(helper.currency(6666)).to eq('$6,666')
+      expect(helper.amount(6666)).to eq('6,666')
     end
   end
 end
