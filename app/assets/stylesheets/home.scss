@@ -15,11 +15,7 @@ html, body{
 
 footer {
   color: white;
-  height: 100px;
-  padding-top: 25px;
-  .copyright {
-    padding-top: 20px;
-  }
+  line-height: 100px;
   .r {
     color: $logo-blue;
     margin-right: 3px;
@@ -37,7 +33,7 @@ nav {
 }
 
 .coming-soon {
-  color: orange;
+  color: orange !important;
   font-weight: bold;
   white-space: nowrap;
 }
@@ -102,8 +98,6 @@ nav {
 }
 
 .navlinks {
-  float: right;
-  display: inline;
   margin-top: 0.2rem;
   font-size: 20px;
   a {
@@ -117,6 +111,9 @@ nav {
 .recent-donations-requests {
   @include gradient-horizontal(#373a3c, #000);
   padding-bottom: 60px;
+  .card {
+    border: none;
+  }
   .lead {
     padding-top: 60px;
     padding-bottom: 30px;
