@@ -6,7 +6,7 @@
   <div id="jumbotron" class="row">
     <div class="col-xs-0 col-md-1 col-lg-2"></div>
     <div class="col-xs-12 col-md-10 col-lg-8 text-xs-center">
-      <span class="display-name">Ryan Jelks</span> donated <span class="dollar">$</span><span class="amount">3</span> to <span class="artist-name">The Approach and The Execution</span> <%= local_time_ago Time.now %><br><br>
+      <span class="display-name">Ryan Jelks</span> donated <span class="dollar">$</span><span class="amount"><%= amount(@donations.first.amount) %></span> to <span class="artist-name">The Approach and The Execution</span> <%= local_time_ago Time.now %><br><br>
       <div>
         <%= render 'loading' %>
         <iframe style="border: 0; width: 100%; height: 120px;" src="http://bandcamp.com/EmbeddedPlayer/album=391401427/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/" seamless><a href="http://theapproachandtheexecution.bandcamp.com/album/kings-among-runaways">Kings Among Runaways by The Approach And The Execution</a></iframe>
@@ -24,10 +24,10 @@
       <div class="col-xs-12">
         <center>
           <p class="lead">Latest Donation Request</p>
-          <h1 class="artist">The Fine Constant</h1>
+          <h1 class="artist"><%= @donations.second.artist_name %></h1>
           <div class="embed-responsive embed-responsive-16by9">
             <%= render 'loading' %>
-            <iframe src="https://www.youtube.com/embed/w1-1CAwPPM4" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/<%= @donations.second.youtube_video_id %>" allowfullscreen></iframe>
           </div>
           <div class="fan"><small class="text-muted"><%= local_time_ago Time.now %> by Ryan Jelks</small></div>
         </center>
@@ -58,7 +58,7 @@
           <h1 class="name">Headbanging Honkeys</h1>
           <div class="embed-responsive embed-responsive-16by9">
             <%= render 'loading' %>
-            <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/265845823&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+            <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/269325592&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
           </div>
         </center>
       </div>
