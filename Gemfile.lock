@@ -8,10 +8,9 @@ GIT
 
 GIT
   remote: git://github.com/twbs/bootstrap-rubygem.git
-  revision: 23b55fc0e064a9ccc105320ba8f05c99b7fad61a
-  ref: 23b55fc0e064a9ccc105320ba8f05c99b7fad61a
+  revision: ec0d6347b19e8ccbe4aea91089747487dfb742af
   specs:
-    bootstrap (4.0.0.alpha3)
+    bootstrap (4.0.0.alpha5)
       autoprefixer-rails (>= 6.0.3)
       sass (>= 3.4.19)
 
@@ -57,7 +56,7 @@ GEM
       tzinfo (~> 1.1)
     arel (7.1.1)
     ast (2.3.0)
-    autoprefixer-rails (6.4.1)
+    autoprefixer-rails (6.5.1)
       execjs
     bcrypt (3.1.11)
     builder (3.2.2)

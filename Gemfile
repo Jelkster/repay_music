@@ -24,7 +24,7 @@ gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Sleek, intuitive, and powerful front-end framework for faster and easier web development.
-gem 'bootstrap', github: 'twbs/bootstrap-rubygem', ref: '23b55fc0e064a9ccc105320ba8f05c99b7fad61a' # '~> 4.0.0.alpha3'
+gem 'bootstrap', github: 'twbs/bootstrap-rubygem' #, ref: '23b55fc0e064a9ccc105320ba8f05c99b7fad61a' # '~> 4.0.0.alpha3'
 # Extends native javascript objects with helpful methods (jquerymy dependency => http://jquerymy.com/). Read more: http://sugarjs.com/
 gem 'sugar-rails'
 # JavaScript library that provides a whole mess of useful functional programming helpers without extending any built-in objects. Read more: http://underscorejs.org/
