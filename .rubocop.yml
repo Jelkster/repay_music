@@ -1,6 +1,8 @@
 inherit_from: .rubocop_todo.yml
 AllCops:
   TargetRubyVersion: 2.3
+  Exclude:
+    - 'app/sandbox/test.rb'
 Rails:
   Enabled: true
 Style/FrozenStringLiteralComment:

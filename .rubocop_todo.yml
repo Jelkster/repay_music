@@ -20,6 +20,8 @@ Metrics/AbcSize:
 # URISchemes: http, https
 Metrics/LineLength:
   Max: 256
+  Exclude:
+    - 'db/seeds.rb'
 
 # Offense count: 3
 # Configuration parameters: CountComments.

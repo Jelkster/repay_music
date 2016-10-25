@@ -26,7 +26,7 @@ RSpec.describe Donation, type: :model do
         it_behaves_like 'donations and requests'
 
         it 'ensures first element is first donation' do
-          expect(@donations.first.artist_name).to eq('artist_6')           
+          expect(@donations.first.artist_name).to eq('artist_6')
         end
 
         it 'ensures second element is first request' do
@@ -40,7 +40,7 @@ RSpec.describe Donation, type: :model do
 
       context 'donation not first element' do
         let(:last_5_not_first) do
-          last_5.tap do |donations| 
+          last_5.tap do |donations|
             donations.first.request = true   # artist_6
             donations.second.request = true  # artist_5
             donations.third.request = false  # artist_4
