@@ -69,7 +69,6 @@ RSpec.describe Donation, type: :model do
 
     context 'only requests' do
       let(:donation) { Donation.new(id: 1, artist_name: 'artist_1', request: false) }
-      let(:donations) { double('Donations') }
       let(:last_5) do
         [
           Donation.new(id: 6, artist_name: 'artist_6', request: true),
@@ -81,8 +80,7 @@ RSpec.describe Donation, type: :model do
       end
 
       before(:example) do
-        expect(Donation).to receive(:order).and_return(donations)
-        expect(donations).to receive(:find_by).with(request: false).and_return(donation)
+        expect(Donation).to receive_message_chain(:order, :find_by).with(request: false).and_return(donation)
         @donations = Donation.present(last_5)
       end
 
