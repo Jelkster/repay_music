@@ -6,7 +6,11 @@
 $link-blue: #0687f5;
 $logo-blue: #2ba6cb;
 
-html, body{  
+.red {
+  color: red;
+}
+
+html, body{
   overflow-x: hidden;
   max-width: 100%;
   color: black;
@@ -109,7 +113,7 @@ nav {
 }
 
 .recent-donations-requests {
-  @include gradient-horizontal(#373a3c, #000);
+  // @include gradient-horizontal(#373a3c, #000);
   padding-bottom: 60px;
   .card {
     border: none;
@@ -189,12 +193,12 @@ nav {
   font-weight: 400;
 }
 
-@include media-breakpoint-up(xs) { 
-  @include latest-donation-request(2.5rem);
-}
-@include media-breakpoint-up(sm) { }
-@include media-breakpoint-up(md) { }
-@include media-breakpoint-up(lg) { 
-  @include latest-donation-request(100px);
-}
-@include media-breakpoint-up(xl) { }
+// @include media-breakpoint-up(xs) {
+//   @include latest-donation-request(2.5rem);
+// }
+// @include media-breakpoint-up(sm) { }
+// @include media-breakpoint-up(md) { }
+// @include media-breakpoint-up(lg) {
+//   @include latest-donation-request(100px);
+// }
+// @include media-breakpoint-up(xl) { }

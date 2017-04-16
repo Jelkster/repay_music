@@ -13,11 +13,13 @@
 !/log/.keep
 !/tmp/.keep
 
-# Ignore Byebug command history file.
+/yarn-error.log
+
 .byebug_history
 
 # Ignore application configuration
 /config/application.yml
 
-/node_modules
 /app/sandbox
+/public/packs
+/node_modules

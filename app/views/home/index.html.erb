@@ -1,67 +1,195 @@
 <div class="intro container">
-  <% content_for :meta_description do %>
-    <meta name="Description" content="A place where fans can make money by recommending music, and artists can get paid for making it." />
-  <% end %>
+  <h1>Basic Data Binding</h1>
 
-  <div id="jumbotron" class="row">
-    <div class="col-xs-0 col-md-1 col-lg-2"></div>
-    <div class="col-xs-12 col-md-10 col-lg-8 text-xs-center">
-      <span class="display-name">Ryan Jelks</span> donated <span class="dollar">$</span><span class="amount"><%= amount(@donations.first.amount) %></span> to <span class="artist-name">The Approach and The Execution</span> <%= local_time_ago Time.now %><br><br>
+  <input type="text" id="input" v-model="message">
+  <p>{{ message }}</p>
+
+  <h1>Lists</h1>
+
+  <ul>
+    <li v-for="a in arr">{{ a }}</li>
+  </ul>
+
+  <h1>Event Listeners</h1>
+
+  <input type="text" v-model="name" @keyup="addName">
+  <button @click="addName">Add</button>
+
+  <h1 :class="{ 'red': enabled }">Attribute and Class Binding</h1>
+
+  <button :title="title">Hover Over Me</button>
+
+  <h1>The Need for Computed Properties</h1>
+
+  <h6 v-text="new Date()"></h6>
+  <h6>{{ reversedMessage }}</h6>
+
+  <h2>All Tasks</h2>
+  <ul>
+    <li v-for="task in tasks">{{ task.description }}</li>
+  </ul>
+
+  <h2>Incomplete Tasks</h2>
+  <ul>
+    <li v-for="task in incompleteTasks">
+      {{ task.description }}
+      <button @click="task.completed = true">Complete</button>
+    </li>
+  </ul>
+
+  <h2>Completed Tasks</h2>
+  <ul>
+    <li v-for="task in completedTasks">
+      {{ task.description }}
+    </li>
+  </ul>
+
+  <h1>Components 101</h1>
+
+  <%= render 'task_template' %>
+
+  <task>Make this dynamic</task>
+  <task>Oh my...</task>
+
+  <h1>Components Within Components</h1>
+
+  <task-list></task-list>
+
+  <h1>Practical Component Exercise #1: Message</h1>
+
+  <script type="text/x-template" id="message">
+    <div class="card" v-show="isVisible">
+      <div class="card-header">
+        {{ title }}
+        <span @click="isVisible = false; $emit('close')" class="close">x</span>
+      </div>
+      <div class="card-block">
+        <p class="card-text"><slot></slot></p>
+      </div>
+    </div>
+  </script>
+
+  <message title="Hello vue!">This is a message...</message>
+
+  <h1>Practical Component Exercise #2: Modal</h1>
+
+  <!-- Button trigger modal -->
+  <button @click="modal" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Launch demo modal
+  </button>
+
+  <message title="Component Communication" @close="respondToCustomEvent">This is another message where we demonstrate how to communicate between Vue components and instances.</message>
+
+  <h1>Practical Component Exercise #3: Tabs</h1>
+
+  <tabs>
+    <tab name="About Us" :selected="true">
+      <h1>Content for about us.</h1>
+    </tab>
+    <tab name="Culture">
+      <h1>Content for culture.</h1>
+    </tab>
+    <tab name="Vision">
+      <h1>Content for vision.</h1>
+    </tab>
+    <tab name="Contact">
+      <h1>Content for contact.</h1>
+    </tab>
+  </tabs>
+
+  <h1>Component Communication Example #1: Custom Events</h1>
+
+  <coupon @applied="onCouponApplied($event)"></coupon>
+  <h1 v-if="couponApplied">You used a coupon!</h1>
+
+  <h1>Component Communication Example #2: Event Dispatcher</h1>
+
+  <h1>Named Slots in a Nutshell</h1>
+
+  <modal>
+    <template slot="header">
+      <h5 class="modal-title" id="namedSlotsModalLabel">Slotted header</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </template>
+
+    Slotted body
+    <!-- <template slot="body">Slotted body</template> -->
+
+    <!-- <template v-if="mod.slot.body" slot="footer"> -->
+    <template slot="footer">
+      Slotted footer
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button type="button" class="btn btn-primary">Save changes</button>
+    </template>
+  </modal>
+
+  <!-- <tabs>
+    <tab name="Home">
+      <h1>Content for home.</h1>
+    </tab>
+    <tab name="Meeting">
+      <h1>Content for meeting.</h1>
+    </tab>
+  </tabs> -->
+
+  <div id="single-use">
+    <h1>Single-Use Components and Inline Templates</h1>
+    <progress-view inline-template>
       <div>
-        <%= render 'loading' %>
-        <iframe style="border: 0; width: 100%; height: 120px;" src="http://bandcamp.com/EmbeddedPlayer/album=391401427/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/" seamless><a href="http://theapproachandtheexecution.bandcamp.com/album/kings-among-runaways">Kings Among Runaways by The Approach And The Execution</a></iframe>
-      </div>
-    </div>
-    <div class="col-xs-0 col-md-1 col-lg-2"></div>
-  </div> 
+        <h3>Your progress through this course is {{ completionRate }}%</h3>
 
-  <%= render 'intro_cards' %>
-</div>
-
-<div class="latest-donation-request">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <center>
-          <p class="lead">Latest Donation Request</p>
-          <h1 class="artist"><%= @donations.second.artist_name %></h1>
-          <div class="embed-responsive embed-responsive-16by9">
-            <%= render 'loading' %>
-            <iframe src="https://www.youtube.com/embed/<%= @donations.second.youtube_video_id %>" allowfullscreen></iframe>
-          </div>
-          <div class="fan"><small class="text-muted"><%= local_time_ago Time.now %> by Ryan Jelks</small></div>
-        </center>
+        <p><button @click="completionRate += 10">Update Completion Rate</button></p>
       </div>
+    </progress-view>
+  </div>
+
+  <h1>Webpack and vue-cli</h1>
+
+  <h1>Hot Module Replacement</h1>
+
+  <div id="hello-vue"></div>
+
+  <h1>Vue Ajax Requests With Axios</h1>
+
+
+    <ul>
+      <li v-for="skill in skills">{{ skill }}</li>
+    </ul>
+
+  <div id="app">
+
+  <h1>Object-Oriented Forms: Part 1</h1>
+  <form method="POST" action="/projects" @submit.prevent="onSubmit" @keydown="form.errors.clear($event.target.id)">
+    <div class="control">
+      <label for="name" class="label">Project Name:</label>
+      <input type="text" id="name" class="input" v-model="form.name">
+      <span v-text="form.errors.get('name')"></span>
     </div>
+    <div class="control">
+      <label for="description" class="label">Project Description:</label>
+      <input type="text" id="description" class="input" v-model="form.description">
+    </div>
+    <div class="control">
+      <button class="button is-primary" :disabled="form.errors.any()">Create</button>
+    </div>
+  </form>
+
+  <!-- <style>
+    span:empty {
+      display: none;
+    }
+    span {
+      border: 1px solid red;
+    }
+  </style> -->
+
+  <!-- <div id="app"> -->
+
+  <h1>Object-Oriented Forms: Part 2</h1>
+
   </div>
 </div>
 
-<div class="recent-donations-requests">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <center>
-          <p class="lead">Recent Donations &amp; Requests</p>
-        </center>
-          <%= render 'recent_donation_cards' %>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div class="featured-podcast">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <center>
-          <p class="lead">Featured Podcast</p>
-          <h1 class="name">Headbanging Honkeys</h1>
-          <div class="embed-responsive embed-responsive-16by9">
-            <%= render 'loading' %>
-            <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/269325592&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
-          </div>
-        </center>
-      </div>
-    </div>
-  </div>
-</div>

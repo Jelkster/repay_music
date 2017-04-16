@@ -1,9 +1,9 @@
-class Pjax
-  constructor: ->
-    @setup()
+# class Pjax
+#   constructor: ->
+#     @setup()
 
-  setup: ->
-    $(document).pjax('a:not([data-skip-pjax])', '#yield')
+#   setup: ->
+#     $(document).pjax('a:not([data-skip-pjax])', '#yield')
 
-$ ->
-  new Pjax
+# $ ->
+#   new Pjax

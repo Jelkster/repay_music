@@ -54,7 +54,7 @@ RSpec.describe DonationsController, type: :controller do
 
   describe "GET #new" do
     it "assigns a new donation as @donation" do
-      get :new, {}, valid_session
+      get :new
       expect(assigns(:donation)).to be_a_new(Donation)
     end
   end
