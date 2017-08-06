@@ -15,9 +15,7 @@
 #= require jquery.pjax
 #= require tether
 #= require bootstrap
-#= require sugar
 #= require underscore
-# require jquerymy
 #= require local_time
 # require_tree ./templates
 #= require_tree .

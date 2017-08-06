@@ -1,5 +1,9 @@
 Figaro.require_keys(
   'db_username',
   'test_db',
-  'base_url'
+  'base_url',
+  'facebook_key',
+  'facebook_secret',
+  'twitter_key',
+  'twitter_secret'
 )

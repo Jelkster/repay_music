@@ -2,8 +2,13 @@ source 'https://rubygems.org'
 
 ruby '2.3.1'
 
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0' # , github: 'rails/rails'
+gem 'rails', '~> 5.0.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Uglifier as compressor for JavaScript assets
@@ -25,8 +30,6 @@ gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 # Sleek, intuitive, and powerful front-end framework for faster and easier web development.
 gem 'bootstrap', github: 'twbs/bootstrap-rubygem' # , ref: '23b55fc0e064a9ccc105320ba8f05c99b7fad61a' # '~> 4.0.0.alpha3'
-# Extends native javascript objects with helpful methods (jquerymy dependency => http://jquerymy.com/). Read more: http://sugarjs.com/
-gem 'sugar-rails'
 # JavaScript library that provides a whole mess of useful functional programming helpers without extending any built-in objects. Read more: http://underscorejs.org/
 gem 'underscore-rails'
 # Client side templates. Read more: https://alternatelabs.co/blog/rails-js-templates
@@ -43,6 +46,10 @@ gem 'kaminari', github: 'amatsuda/kaminari'
 gem 'figaro'
 # Flexible authentication solution
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-github'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
@@ -69,11 +76,15 @@ group :development, :test do
   gem 'shoulda-matchers' # , github: 'thoughtbot/shoulda-matchers'
   # Fixtures replacement
   gem 'factory_girl_rails' # , github: 'thoughtbot/factory_girl_rails'
+  # An IRB alternative and runtime developer console
+  gem 'pry-rails'
+  gem 'pry-theme'
+  gem 'pry-byebug'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'web-console'
+  gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

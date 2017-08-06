@@ -1,0 +1,2 @@
+class FacebookAuthInfo < AuthInfo
+end

@@ -3,7 +3,16 @@ AllCops:
   TargetRubyVersion: 2.3
   Exclude:
     - 'app/sandbox/test.rb'
+    - 'db/schema.rb'
 Rails:
   Enabled: true
+Rails/Validation:
+  Enabled: false
+Bundler/OrderedGems:
+  Enabled: false
+Style/EmptyMethod:
+  Enabled: false
 Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/VariableNumber:
   Enabled: false

@@ -32,18 +32,17 @@ class Donation < ApplicationRecord
     private
 
     def ensure_second_is_request(donations)
-      unless donations.second.request
-        first_request_index = donations.index { |d| d.request == true }
+      return if donations.second.request
+      first_request_index = donations.index { |d| d.request == true }
 
-        request = if first_request_index.nil?
-                    donations.pop
-                    order(id: :desc).find_by(request: true)
-                  else
-                    donations.delete_at(first_request_index)
-                  end
+      request = if first_request_index.nil?
+                  donations.pop
+                  order(id: :desc).find_by(request: true)
+                else
+                  donations.delete_at(first_request_index)
+                end
 
-        donations.insert(1, request)
-      end
+      donations.insert(1, request)
     end
   end
 end
