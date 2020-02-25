@@ -4,16 +4,16 @@
   <% end %>
 
   <div id="jumbotron" class="row">
-    <div class="col-xs-0 col-md-1 col-lg-2"></div>
-    <div class="col-xs-12 col-md-10 col-lg-8 text-xs-center">
-      <span class="display-name">Ryan Jelks</span> donated <span class="dollar">$</span><span class="amount"><%= amount(@donations.first.amount) %></span> to <span class="artist-name">The Approach and The Execution</span> <%= local_time_ago Time.now %><br><br>
+    <div class="col-0 col-md-1 col-lg-2"></div>
+    <div class="col-12 col-md-10 col-lg-8 text-center">
+      <span class="display-name">Ryan Jelks</span> donated <span class="dollar">$</span><span class="amount"><%= amount(@donations.first.amount) %></span> to <span class="artist-name"><%= @donations.first.artist_name %></span> <%= local_time_ago Time.now %><br><br>
       <div>
         <%= render 'loading' %>
-        <iframe style="border: 0; width: 100%; height: 120px;" src="http://bandcamp.com/EmbeddedPlayer/album=391401427/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/" seamless><a href="http://theapproachandtheexecution.bandcamp.com/album/kings-among-runaways">Kings Among Runaways by The Approach And The Execution</a></iframe>
+        <iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=3630150433/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/" seamless><a href="http://tildeathofficial.bandcamp.com/album/photographs">Photographs by Til Death</a></iframe>
       </div>
     </div>
-    <div class="col-xs-0 col-md-1 col-lg-2"></div>
-  </div> 
+    <div class="col-0 col-md-1 col-lg-2"></div>
+  </div>
 
   <%= render 'intro_cards' %>
 </div>
@@ -21,7 +21,7 @@
 <div class="latest-donation-request">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-12">
         <center>
           <p class="lead">Latest Donation Request</p>
           <h1 class="artist"><%= @donations.second.artist_name %></h1>
@@ -39,7 +39,7 @@
 <div class="recent-donations-requests">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-12">
         <center>
           <p class="lead">Recent Donations &amp; Requests</p>
         </center>
@@ -49,19 +49,19 @@
   </div>
 </div>
 
-<div class="featured-podcast">
+<!-- <div class="featured-podcast">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-12">
         <center>
           <p class="lead">Featured Podcast</p>
           <h1 class="name">Headbanging Honkeys</h1>
           <div class="embed-responsive embed-responsive-16by9">
-            <%= render 'loading' %>
-            <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/269325592&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+            <%#= render 'loading' %>
+            <iframe width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/303241214&amp;color=%23ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"></iframe>
           </div>
         </center>
       </div>
     </div>
   </div>
-</div>
+</div> -->

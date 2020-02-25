@@ -10,31 +10,26 @@
 ## Getting Started
 
 #### Requirements
-- Ruby 2.3.1
-- PostgreSQL
+- Ruby 2.7.0
+- PostgreSQL 12
 
 Install gems:
 ```
 $ bundle install
 ```
 
-Create config file to hold environment variables:
-```
-$ bundle exec figaro install
-```
-
-Add variables to config file:
+Run `rails credentials:edit` and add the following credentials:
 ```yaml
-# config/application.yml
-
 db_username: <username>
 test_db: <dbname>
 base_url: <http://localhost:3000>
 ```
 
-Create database:
+Setup database:
 ```
-$ rails db:create db:schema:load
+$ rails db:create
+$ rails db:schema:load
+$ rails db:seed
 ```
 
 Run server:

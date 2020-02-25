@@ -2,7 +2,7 @@
 
   <div class="card-deck-wrapper">
     <div class="card-deck">
-      
+
       <% @donations[2..4].each do |donation| %>
         <div class="card">
           <div class="card-img-top">
@@ -11,7 +11,7 @@
               <iframe src="https://www.youtube.com/embed/<%= donation.youtube_video_id %>" allowfullscreen></iframe>
             </div>
           </div>
-          <div class="card-block">
+          <div class="card-body">
             <h4 class="card-title"><%= donation.artist_name %><br>
               <% unless donation.request %>
                 <span class="amount">$<%= amount(donation.amount) %></span>

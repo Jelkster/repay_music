@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
@@ -18,33 +19,41 @@
     <div class="main container-fluid">
       <div class="header-main-wrapper">
         <header>
-          <nav class="navbar navbar-full navbar-dark">
-            <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button>
-            <div class="collapse navbar-toggleable-md" id="navbarResponsive">
+          <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000000">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
               <a class="navbar-brand" href="#"><span class="r">r</span>\m/ <span class="repay">Repay</span> Music</a>
-              <ul class="nav navbar-nav">
+              <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link coming-soon" href="#">Coming Soon</a>
+                  <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
+                  <a class="nav-link coming-soon" href="#">Coming Soon?</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Sign Up</a>
                 </li>
                 <li class="nav-item">
+                  <!-- <a class="nav-link disabled" href="#">Disabled</a> -->
                   <a class="nav-link" href="#">Log In</a>
                 </li>
               </ul>
-              <div class="navlinks form-inline float-lg-right">
+              <div class="navlinks form-inline my-2 my-lg-0">
                 <a href="https://www.facebook.com/RepayMusic/" target="_blank"><i class="fa fa-facebook-f fa-lg"></i></a>
                 <a href="https://twitter.com/repaymusic" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
                 <a href="https://repaymusic-slack.herokuapp.com/" target="_blank"><i class="fa fa-slack fa-lg"></i></a>
                 <a href="https://github.com/Jelkster/repay_music" target="_blank"><i class="fa fa-github fa-lg"></i></a>
               </div>
+              <!-- <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+              </form> -->
             </div>
           </nav>
 
           <div class="container">
             <p id="tagline" class="lead">
-              A place where fans can make money by recommending music, <br class="hidden-sm-down">
+              A place where fans can make money by recommending music, <br class="d-none d-md-block">
               and artists can get paid for making it.
             </p>
           </div>
@@ -55,14 +64,14 @@
             <% flash.each do |name, msg| %>
               <%= content_tag :div, msg, class: "alert alert-info" %>
             <% end %>
-            
+
             <%= yield %>
           </div>
         </main>
       </div>
 
       <footer class="row">
-        <div class="copyright col-xs-12 text-xs-center">&copy; <%= local_time(Time.now, '%Y') %> <span class="r">r</span>\m/</div>
+        <div class="copyright col-12 text-center">&copy; <%= local_time(Time.now, '%Y') %> <span class="r">r</span>\m/</div>
       </footer>
     </div>
   </body>
