@@ -1,18 +1,28 @@
 GIT
-  remote: git://github.com/amatsuda/kaminari.git
-  revision: be3a2c9a2182fae145e7ff88223feb4d55ed539d
+  remote: https://github.com/amatsuda/kaminari.git
+  revision: ff5c8425eb7191a4e1cb6013b2a15bf38a725a5f
   specs:
-    kaminari (1.0.0.alpha)
-      actionpack (>= 3.0.0)
-      activesupport (>= 3.0.0)
+    kaminari (1.1.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.1.1)
+      kaminari-activerecord (= 1.1.1)
+      kaminari-core (= 1.1.1)
+    kaminari-actionview (1.1.1)
+      actionview
+      kaminari-core (= 1.1.1)
+    kaminari-activerecord (1.1.1)
+      activerecord
+      kaminari-core (= 1.1.1)
+    kaminari-core (1.1.1)
 
 GIT
-  remote: git://github.com/twbs/bootstrap-rubygem.git
-  revision: ec0d6347b19e8ccbe4aea91089747487dfb742af
+  remote: https://github.com/twbs/bootstrap-rubygem.git
+  revision: 9892831e005bdb2da72f41aa42a6391baa6ad188
   specs:
-    bootstrap (4.0.0.alpha5)
-      autoprefixer-rails (>= 6.0.3)
-      sass (>= 3.4.19)
+    bootstrap (5.1.3)
+      autoprefixer-rails (>= 9.1.0)
+      popper_js (>= 2.9.3, < 3)
+      sassc-rails (>= 2.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -56,7 +66,7 @@ GEM
       tzinfo (~> 1.1)
     arel (7.1.1)
     ast (2.3.0)
-    autoprefixer-rails (6.5.1)
+    autoprefixer-rails (9.8.6)
       execjs
     bcrypt (3.1.11)
     builder (3.2.2)
@@ -103,7 +113,8 @@ GEM
     goldiloader (0.0.10)
       activerecord (>= 3.2, < 5.1)
       activesupport (>= 3.2, < 5.1)
-    i18n (0.7.0)
+    i18n (0.9.5)
+      concurrent-ruby (~> 1.0)
     jbuilder (2.6.0)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -143,6 +154,7 @@ GEM
       ast (~> 2.2)
     pg (0.18.4)
     pkg-config (1.1.7)
+    popper_js (2.9.3)
     powerpack (0.1.1)
     puma (3.6.0)
     rack (2.0.1)
@@ -220,6 +232,14 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    sassc (2.4.0)
+      ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     selenium-webdriver (2.53.4)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
